@@ -1,0 +1,16 @@
+import os from "os";
+
+// console.log(os);
+const hostName = os.hostname();
+const osType = os.type();
+const procArchitecture = os.arch();
+const totalMemory = os.totalmem();
+const freeMemory = os.freemem();
+
+const systemInfo = `Host name: ${hostName}
+Operation System: ${osType}
+CPU architecture: ${procArchitecture}
+Free memory: ${freeMemory} Bytes
+Total memory: ${totalMemory} Bytes`;
+
+console.log(systemInfo);
