@@ -6,7 +6,6 @@ import { argv } from "process";
 import * as readline from "node:readline/promises";
 import console from "node:console";
 import { stdin as input, stdout as output } from "node:process";
-import { url } from "node:inspector";
 
 const urlFromTerminal = argv[2] || null;
 console.clear();
@@ -75,6 +74,8 @@ async function handleParseUrl() {
     case "3":
       console.log(`${urlInfo(defaultURL)}\n`);
       break;
+    default:
+      console.log(`Unavailable option\n`);
   }
 }
 

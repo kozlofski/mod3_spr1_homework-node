@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch --watchPreserveOutput --env-file=.env app.js"
+    "dev": "node --watch --watch-preserve-output --env-file=.env app.js"
   },
   "keywords": [],
   "author": "",

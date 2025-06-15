@@ -1,22 +1,26 @@
 import url from "url";
-import { argv } from "process";
 
 export function urlInfo(urlInString = urlFromTerminal) {
-  const urlToParse = new url.URL(urlInString);
-  const protocol = urlToParse.protocol;
-  const hostname = urlToParse.hostname;
-  const port = urlToParse.port;
-  const pathname = urlToParse.pathname;
-  const searchParams = urlToParse.searchParams;
-  const hash = urlToParse.hash;
+  try {
+    const urlToParse = new url.URL(urlInString);
+    const protocol = urlToParse.protocol;
+    const hostname = urlToParse.hostname;
+    const port = urlToParse.port;
+    const pathname = urlToParse.pathname;
+    const searchParams = urlToParse.searchParams;
+    const hash = urlToParse.hash;
 
-  console.log(`\nParsing:\n${urlInString}:\n`);
-  return `Protocol: ${protocol}
+    console.log(`\nParsing:\n${urlInString}:\n`);
+    return `Protocol: ${protocol}
 Host name: ${hostname}
 Port: ${port}
 Path: ${pathname}
 Search params: ${searchParams}
 Hash: ${hash}`;
+  } catch (error) {
+    console.log(`Error with parsing URL: ${error}`);
+  }
+  return ``;
 }
 
 export const defaultURL =
