@@ -7,22 +7,16 @@ import * as readline from "node:readline/promises";
 import console from "node:console";
 import { stdin as input, stdout as output } from "node:process";
 import { url } from "node:inspector";
-// import { markAsUncloneable } from "node:worker_threads";
 
 const urlFromTerminal = argv[2] || null;
 console.clear();
 
-// console.log(systemInfo());
-// console.log(urlParser(urlFromTerminal));
 let exit = false;
 const CLI = readline.createInterface({ input, output });
 while (!exit) {
   const answer = await CLI.question(
-    `What do you want to do?
-[press 0 (zero) to display available options]
-`
+    `What do you want to do?\n[press 0 (zero) to display available options]\n`
   );
-  //   CLI.close();
 
   switch (answer.trim()) {
     case "0":
@@ -44,8 +38,8 @@ exit - exit application
       await handleHashPassword();
       break;
     case "exit":
-      handleExit();
       exit = true;
+      CLI.close();
       break;
     default:
       console.log("Invalid option. Try again");
@@ -65,7 +59,6 @@ async function handleParseUrl() {
 2 - provide it below, manually
 3 - display an example URL
 `);
-  //   urlCLI.close();
 
   switch (option.trim()) {
     case "1":
@@ -92,10 +85,10 @@ async function handleHashPassword() {
   const password = await CLI.question(`Input a password: `);
   let salt;
   const userWantsToInputSalt = await CLI.question(
-    `Do you want to provide salt? [y/n] `
+    `Do you want to provide salt? [otherwise it will be random] `
   );
-  if (userWantsToInputSalt.match(/[yY]|yes|Yes/)) {
-    salt = await passwordCLI.question(`Provide salt: `);
+  if (userWantsToInputSalt.match(/[yY](es)?/)) {
+    salt = await CLI.question(`Provide salt: `);
   }
 
   const hashObject = generateHash(password, salt);
@@ -108,12 +101,6 @@ async function handleHashPassword() {
   );
 }
 
-function handleExit() {
-  console.clear();
-  console.log("Terminating application");
-}
-
 process.on("exit", () => {
-  CLI.close();
-  console.log(`Goodbye`);
+  console.log(`Terminating application. Goodbye`);
 });

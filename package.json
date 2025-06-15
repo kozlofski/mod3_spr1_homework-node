@@ -5,12 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch --watchPreserveOutput --env-file=.env app.js",
-    "sys": "node --watch --watchPreserveOutput --env-file=.env systemInfo.js",
-    "url": "node --watch --watchPreserveOutput --env-file=.env urlParser.js",
-    "crypto": "node --watch --watchPreserveOutput --env-file=.env passwordHasher.js",
-    "events": "node --watch --watchPreserveOutput --env-file=.env eventHandler.js",
-    "process": "node --watch --watchPreserveOutput --env-file=.env process.js"
+    "dev": "node --watch --watchPreserveOutput --env-file=.env app.js"
   },
   "keywords": [],
   "author": "",
