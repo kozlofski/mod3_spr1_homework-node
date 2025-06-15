@@ -1,0 +1,18 @@
+{
+  "name": "49_my-node-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch --watchPreserveOutput --env-file=.env app.js",
+    "sys": "node --watch --watchPreserveOutput --env-file=.env systemInfo.js",
+    "url": "node --watch --watchPreserveOutput --env-file=.env urlParser.js",
+    "crypto": "node --watch --watchPreserveOutput --env-file=.env passwordHasher.js",
+    "events": "node --watch --watchPreserveOutput --env-file=.env eventHandler.js",
+    "process": "node --watch --watchPreserveOutput --env-file=.env process.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
